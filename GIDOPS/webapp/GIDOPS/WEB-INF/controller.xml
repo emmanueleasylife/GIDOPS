@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/site-conf.xsd">
+    <!-- The controller elements that are common to all OFBiz components
+         can be found in the following xml file. A component can override the
+         elements found in the common-controller.xml file. -->
+    <include location="component://common/webcommon/WEB-INF/common-controller.xml"/>
+
+    <description>GIDOPS Component Site Configuration File</description>
+
+    <!-- Events to run on every request before security (chains exempt) -->
+    <!--
+    <preprocessor>
+    </preprocessor>
+    -->
+    <!-- Events to run on every request after all other processing (chains exempt) -->
+    <!--
+    <postprocessor>
+        <event name="test" type="java" path="org.ofbiz.webapp.event.TestEvent" invoke="test"/>
+    </postprocessor>
+    -->
+<!--==================================SENDING COMMAND TO DIPLAY MAIN SCREEN==================================================================================== -->        
+     <request-map uri="main"><security https="true" auth="true"/>
+    <response name="success" type="view" value="main"/></request-map> 
+<!--==================================SENDING COMMAND TO CREATE RECORD==================================================================================== -->              
+     <request-map uri="creategidopsEvent">
+     <security https="true" auth="true"/>
+     <event type="java" path="com.gidops.getitdonedata.events.creategitdopsevents" invoke="creategidopsEvent"/>
+     <response name="success" type="view" value="main"/>
+      <response name="error" type="view" value="main"/>
+    </request-map>
+<!--==================================SENDING COMMAND TO UPDATE RECORD==================================================================================== -->        
+    <request-map uri="UpdateGidpos">
+    <security https="true" auth="true"/>
+    <event type="service" invoke="UpdateGidpos"/>
+    <response name="success" type="view" value="main"/>
+    </request-map>
+<!--==================================SENDING COMMAND TO DELETE RECORD==================================================================================== -->           
+    <request-map uri="DeleteInfo">
+    <security https="true" auth="true"/>
+    <event type="service" invoke="DeleteInfo"/>
+    <response name="success" type="view" value="main"/>
+    </request-map>
+<!--==================================SENDING COMMAND TO DISPLAY ADDED RECORD ON UPDATE PAGE================================================================================ -->            
+     <request-map uri="listgidops">
+     <security https="true" auth="true"/>
+     <response name="success" type="view" value="listgidops"/>
+     </request-map>
+<!--==================================SENDING COMMAND TO SEARCH FOR RECORD ON FILTER PAGE================================================================================ -->            
+     <request-map uri="findgidopsCC">
+     <security https="true" auth="true"/>
+     <response name="success" type="view" value="listgidopsCCC"/>
+     </request-map>    
+<!--==================================SENDING COMMAND TO SEARCH FOR RECORD ON FILTER 2 PAGE================================================================================ -->            
+     <request-map uri="findgidopsCC2">
+     <security https="true" auth="true"/>
+     <response name="success" type="view" value="listgidopsCCC2"/>
+     </request-map> 
+     
+     <request-map uri="createfilterEvent">
+     <security https="true" auth="true"/>
+     <event type="java" path="com.gidops.getitdonedata.events.filterevent" invoke="createfilterEvent"/>
+     <response name="success" type="view" value="listgidopsCCC2"/>
+      <response name="error" type="view" value="listgidopsCCC2"/>
+    </request-map>
+                
+    <view-map name="main" type="screen" page="component://GIDOPS/widget/GIDOPSScreens.xml#main"/>
+    <view-map name="listgidops" type="screen" page="component://GIDOPS/widget/GIDOPSScreens.xml#listgidops"/>
+    <view-map name="listgidopsCCC" type="screen" page="component://GIDOPS/widget/GIDOPSScreens.xml#findfirstscreen"/>
+    <view-map name="listgidopsCCC2" type="screen" page="component://GIDOPS/widget/GIDOPSScreens.xml#searchscreen"/>
+</site-conf>

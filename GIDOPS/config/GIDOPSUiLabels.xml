@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/ofbiz-properties.xsd">
+    <property key="GIDOPSApplication">
+        <value xml:lang="en">GET IT DONE</value>
+        <value xml:lang="zh">GET IT DONE</value>
+        <value xml:lang="zh-TW">GET IT DONE</value>
+    </property>
+    <property key="GIDOPSCompanyName">
+        <value xml:lang="en">GET IT DONE</value>
+        <value xml:lang="zh-TW">GET IT DONE</value>
+    </property>
+     <property key="GET">
+        <value xml:lang="en">GET IT DONE</value>
+    </property>
+     <property key="UPDATE">
+        <value xml:lang="en">Update and Delete</value>
+    </property>
+     <property key="FILTER">
+        <value xml:lang="en">Search and Filter</value>
+    </property>
+<!--         <property key="Chkt"> -->
+<!--         <value xml:lang="en">Check it now</value> -->
+<!--     </property> -->
+    <property key="Sear">
+        <value xml:lang="en">Search For Expired Date</value>
+    </property>
+         <property key="FILTER2">
+        <value xml:lang="en">Check Expired</value>
+    </property>
+    <property key="GIDOPSCompanySubtitle">
+        <value xml:lang="en">GET IT DONE</value>
+        <value xml:lang="it">GET IT DONE</value>
+        <value xml:lang="zh">GET IT DONE</value>
+        <value xml:lang="zh-TW">GET IT DONE</value>
+    </property>
+    <property key="GIDOPSViewPermissionError">
+        <value xml:lang="en">You are not allowed to view this page.</value>
+        <value xml:lang="zh">不允许你浏览这个页面。</value>
+        <value xml:lang="zh-TW">不允許您檢視這個頁面.</value>
+    </property>
+    <property key="MVL">
+        <value xml:lang="en">Motor Vehicle License</value>
+    </property>
+      <property key="RWC">
+        <value xml:lang="en">Road Worthiness Certificate</value>
+    </property>
+      <property key="INS">
+        <value xml:lang="en">Insurance Certificate</value>
+    </property>
+      <property key="VehMakeModel">
+        <value xml:lang="en">Vehicle Model / Make</value>
+    </property>
+      <property key="EngCapacity">
+        <value xml:lang="en">Engine Capacity</value>
+    </property>
+      <property key="HKNY">
+        <value xml:lang="en">Hackney permit</value>
+    </property>
+    <property key="RegNumber">
+        <value xml:lang="en">Registration Number</value>
+    </property>
+    <property key="CustomerName">
+        <value xml:lang="en">Customer Name</value>
+    </property>
+      <property key="LGA">
+        <value xml:lang="en">Local Government Inter-state Permit</value>
+    </property>
+    <property key="Getitdone">
+        <value xml:lang="en">Get It Done</value>
+    </property>
+</resource>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entitymodel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/entitymodel.xsd">
+    <!-- ========================================================= -->
+    <!-- ========================Get It Done Database structure==================-->
+    <!-- ========================================================= -->
+    <title>GET IT DONE DATABASE STRUCTURE</title>
+    <description>None</description>
+    <copyright></copyright>
+    <version>1.0</version>
+<entity entity-name="GIDOPSDATA" package-name="org.ofbiz.GIDOPS" title="Get It Done main Database">
+           <field name="UniqueID" type="id-ne"><description>Primary sequence ID</description></field>
+           <field name="CustomerName" type="name"></field>
+           <field name="RegNumber" type="id-ne"></field>
+           <field name="VehMakeModel" type="name"></field>
+           <field name="EngCapacity" type="id-ne"></field>
+           <field name="MVL" type="date"></field>
+           <field name="RWC" type="date"></field>
+           <field name="INS" type="date"></field>
+           <field name="HKNY" type="date"></field>  
+           <field name="LGA" type="date"></field>
+           <prim-key field="UniqueID"/>
+</entity>
+</entitymodel>

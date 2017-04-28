@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the GIDOPS Component." permissionId="GIDOPS_VIEW"/>
+    <SecurityPermission description="Create operations in the GIDOPS Component." permissionId="GIDOPS_CREATE"/>
+    <SecurityPermission description="Update operations in the GIDOPS Component." permissionId="GIDOPS_UPDATE"/>
+    <SecurityPermission description="Delete operations in the GIDOPS Component." permissionId="GIDOPS_DELETE"/>
+    <SecurityPermission description="ALL operations in the GIDOPS Component." permissionId="GIDOPS_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="GIDOPS_ADMIN"/>
+
+</entity-engine-xml>

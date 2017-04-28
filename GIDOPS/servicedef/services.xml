@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/services.xsd">
+    <description>GIDOPS Services</description>
+    <vendor></vendor>
+    <version>1.0</version>
+
+<service name="CreateGetItDone" default-entity-name="GIDOPSDATA" engine="entity-auto" invoke="create" auth="true">
+        <description>Create a Get It Done Record</description>
+        <auto-attributes include="pk" mode="OUT" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="false"/>
+        <override name="RWC" optional="true"/>
+        <override name="INS" optional="true"/>
+        <override name="HKNY" optional="true"/>
+        <override name="LGA" optional="true"/>
+</service>
+ <!--==================================CREATING SERVICE TO UPDATE RECORD=============================================================================================== -->
+<service name="UpdateGidpos" default-entity-name="GIDOPSDATA" engine="entity-auto" invoke="update" auth="true">
+        <description>Update a Get it done Record</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+        <auto-attributes include="nonpk" mode="IN" optional="true"/>
+</service>
+<!--==================================CREATING SERVICE TO DELETE RECORD=============================================================================================== -->
+<service name="DeleteInfo" default-entity-name="GIDOPSDATA" engine="entity-auto" invoke="delete" auth="true">
+        <description>Delete a Get it done Record</description>
+        <auto-attributes include="pk" mode="IN" optional="false"/>
+</service>   
+</services>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-form.xsd">
+
+	<form name="listgidops2" type="list" list-name="listIt2" target="UpdateGidpos"
+		separate-columns="true" default-table-style="basic-table hover-bar"
+		odd-row-style="alternate-row" header-row-style="header-row-2">
+		<actions>
+			<entity-condition entity-name="GIDOPSDATA" list="listIt2">
+				<order-by field-name="UniqueID ASC" />
+			</entity-condition>
+		</actions>
+		<auto-fields-service service-name="UpdateGidpos" />
+		<field name="UniqueID">
+			<display />
+		</field>
+		<field name="deleteLink" title="${uiLabelMap.DELETE}"
+			widget-style="buttontext">
+			<hyperlink target="DeleteInfo" description="${uiLabelMap.CommonDelete}"
+				also-hidden="false" confirmation-message="${uiLabelMap.CONFIRM_DELETE}">
+				<parameter param-name="UniqueID" />
+			</hyperlink>
+		</field>
+		<field name="submitButton" title="${uiLabelMap.Update}">
+			<submit button-type="button" confirmation-message="${uiLabelMap.CONFIRM_UPDATE}" />
+		</field>
+	</form>
+
+	<!--===================================CREATING FORM TO SEARCH FOR RECORD========================================================================================== -->
+	<form name="findgidopsform" type="single" target="findgidopsCC"
+		default-entity-name="GIDOPSDATA">
+		<field name="noConditionFind">
+			<hidden value="Y" />
+		</field>
+		<field name="MVL" title="${uiLabelMap.MVL}">
+			<date-find type="date" />
+		</field>
+		<field name="RWC" title="${uiLabelMap.RWC}">
+			<date-find type="date" />
+		</field>
+		<field name="INS" title="${uiLabelMap.INS}">
+			<date-find type="date" />
+		</field>
+		<field name="HKNY" title="${uiLabelMap.HKNY}">
+			<date-find type="date" />
+		</field>
+		<field name="LGA" title="${uiLabelMap.LGA}">
+			<date-find type="date" />
+		</field>
+		<field name="searchButton" title="${uiLabelMap.FIND_DATE}"
+			widget-style="smallSubmit">
+			<submit button-type="button" />
+		</field>
+	</form>
+	<!--===================================CREATING FORM TO DISPLAY SEARCHED 
+		RECORD==================================================================================== -->
+	<form name="listgidopsform" type="list" list-name="listIt"
+		paginate-target="findgidopsCC" default-entity-name="GIDOPSDATA"
+		separate-columns="true" odd-row-style="alternate-row"
+		header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+		<actions>
+			<service service-name="performFind" result-map="result"
+				result-map-list="listIt">
+				<field-map field-name="inputFields" from-field="gitops_ctx" />
+				<field-map field-name="entityName" value="GIDOPSDATA" />
+				<field-map field-name="orderBy" from-field="parameters.sortField" />
+				<field-map field-name="viewIndex" from-field="viewIndex" />
+				<field-map field-name="viewSize" from-field="viewSize" />
+			</service>
+		</actions>
+		<field name="UniqueID" title="${uiLabelMap.UniqueID}">
+			<display />
+		</field>
+		<field name="CustomerName" title="${uiLabelMap.CustomerName}">
+			<display />
+		</field>
+		<field name="RegNumber" title="${uiLabelMap.RegNumber}">
+			<display />
+		</field>
+		<field name="VehMakeModel" title="${uiLabelMap.VehMakeModel}">
+			<display />
+		</field>
+		<field name="EngCapacity" title="${uiLabelMap.EngCapacity}">
+			<display />
+		</field>
+		<field name="MVL" title="${uiLabelMap.MVL}" sort-field="true">
+			<display />
+		</field>
+		<field name="RWC" title="${uiLabelMap.RWC}" sort-field="true">
+			<display />
+		</field>
+		<field name="INS" title="${uiLabelMap.INS}" sort-field="true">
+			<display />
+		</field>
+		<field name="HKNY" title="${uiLabelMap.HKNY}" sort-field="true">
+			<display />
+		</field>
+		<field name="LGA" title="${uiLabelMap.LGA}" sort-field="true">
+			<display />
+		</field>
+	</form>
+</forms>

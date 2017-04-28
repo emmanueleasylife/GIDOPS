@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screens xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ofbiz.apache.org/dtds/widget-screen.xsd">
+	<!--=========================================ADDING AND DISPLAYING DATA TO THE 
+		MAIN/MASTER SCREEN============================================================== -->
+	<screen name="main">
+		<section>
+			<actions>
+				<set field="headerItem" value="WELCOME" />
+				<set field="titleProperty" value="GetItdone" />
+				<script
+					location="component://GIDOPS/webapp/GIDOPS/WEB-INF/actions/crud/listdata.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="GIDOPSCommonDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet title="${uiLabelMap.Getitdone}">
+							<platform-specific>
+								<html>
+									<html-template location="component://GIDOPS/webapp/crud/Inputdata.ftl" />
+								</html>
+							</platform-specific>
+						</screenlet>
+						<screenlet title="${uiLabelMap.Getitdone}">
+							<platform-specific>
+								<html>
+									<html-template location="component://GIDOPS/webapp/crud/Listdata.ftl" />
+								</html>
+							</platform-specific>
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+
+	<!--==============================================ADDING AND DISPLAYING UPDATE DATA 
+		TO THE MAIN/MASTER SCREEN====================================================== -->
+	<screen name="listgidops">
+		<section>
+			<actions>
+				<set field="headerItem" value="GET IT DONE" /><!-- this highlights 
+					the selected menu-item with name "main" -->
+				<set field="titleProperty" value="GET IT DONE" />
+			</actions>
+			<widgets>
+				<decorator-screen name="GIDOPSCommonDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet title="UPDATE GET IT DONE">
+							<include-form name="listgidops2"
+								location="component://GIDOPS/widget/GIDOPSForms.xml"></include-form>
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	<!--=============================================ADDING AND DISPLAYING SEARCH_DATA 
+		TO THE MAIN/MASTER SCREEN================================================== -->
+	<screen name="findfirstscreen">
+		<section>
+			<actions>
+				<set field="headerItem" value="GET IT DONE" />
+				<set field="titleProperty" value="FILTER GET IT DONE" />
+				<set field="gitops_ctx" from-field="parameters" />
+			</actions>
+			<widgets>
+				<decorator-screen name="GIDOPSCommonDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<section>
+							<condition>
+								<if-has-permission permission="GIDOPS" action="_VIEW" />
+							</condition>
+							<widgets>
+								<decorator-screen name="FindScreenDecorator"
+									location="component://common/widget/CommonScreens.xml ">
+									<decorator-section name="search-options">
+										<include-form name="findgidopsform"
+											location="component://GIDOPS/widget/GIDOPSForms.xml" />
+									</decorator-section>
+									<decorator-section name="search-results">
+										<include-form name="listgidopsform"
+											location="component://GIDOPS/widget/GIDOPSForms.xml" />
+									</decorator-section>
+								</decorator-screen>
+							</widgets>
+							<fail-widgets>
+								<label style="h3">${uiLabelMap.FirstViewPermissionError}
+								</label>
+							</fail-widgets>
+						</section>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+	
+<!--=============================================ADDING AND DISPLAYING SEARCH_DATA  -->
+<!-- 		TO THE MAIN/MASTER SCREEN================================================== -->
+<!-- 	<screen name="searchscreen"> -->
+<!-- 		<section> -->
+<!-- 			<actions> -->
+<!-- 				<set field="headerItem" value="GET IT DONE" /> -->
+<!-- 				<set field="titleProperty" value="FILTER GET IT DONE" /> -->
+<!-- 				<set field="gitops_ctx2" from-field="parameters" /> -->
+<!-- 			</actions> -->
+<!-- 			<widgets> -->
+<!-- 				<decorator-screen name="GIDOPSCommonDecorator" -->
+<!-- 					location="${parameters.mainDecoratorLocation}"> -->
+<!-- 					<decorator-section name="body"> -->
+<!-- 						<section> -->
+<!-- 							<condition> -->
+<!-- 								<if-has-permission permission="GIDOPS" action="_VIEW" /> -->
+<!-- 							</condition> -->
+<!-- 							<widgets> -->
+<!-- 								<decorator-screen name="FindScreenDecorator" -->
+<!-- 									location="component://common/widget/CommonScreens.xml "> -->
+<!-- 									<decorator-section name="search-options"> -->
+<!-- 										<include-form name="seacrchform" -->
+<!-- 											location="component://GIDOPS/widget/GIDOPSForms.xml" /> -->
+<!-- 									</decorator-section> -->
+<!-- 									<decorator-section name="search-results"> -->
+<!-- 										<include-form name="listseacrchform" -->
+<!-- 											location="component://GIDOPS/widget/GIDOPSForms.xml" /> -->
+<!-- 									</decorator-section> -->
+<!-- 								</decorator-screen> -->
+<!-- 							</widgets> -->
+<!-- 							<fail-widgets> -->
+<!-- 								<label style="h3">${uiLabelMap.FirstViewPermissionError} -->
+<!-- 								</label> -->
+<!-- 							</fail-widgets> -->
+<!-- 						</section> -->
+<!-- 					</decorator-section> -->
+<!-- 				</decorator-screen> -->
+<!-- 			</widgets> -->
+<!-- 		</section> -->
+<!-- 	</screen> -->
+<screen name="searchscreen">
+		<section>
+			<actions>
+				<set field="headerItem" value="WELCOME" />
+				<set field="titleProperty" value="GetItdone" />
+				<script
+					location="component://GIDOPS/webapp/GIDOPS/WEB-INF/actions/crud/listdata2.groovy" />
+			</actions>
+			<widgets>
+				<decorator-screen name="GIDOPSCommonDecorator"
+					location="${parameters.mainDecoratorLocation}">
+					<decorator-section name="body">
+						<screenlet title="${uiLabelMap.Getitdone}">
+							<platform-specific>
+								<html>
+									<html-template location="component://GIDOPS/webapp/crud/adddata.ftl" />
+								</html>
+							</platform-specific>
+						</screenlet>
+						<screenlet title="${uiLabelMap.Getitdone}">
+							<platform-specific>
+								<html>
+									<html-template location="component://GIDOPS/webapp/crud/listdata2.ftl" />
+								</html>
+							</platform-specific>
+						</screenlet>
+					</decorator-section>
+				</decorator-screen>
+			</widgets>
+		</section>
+	</screen>
+</screens>
